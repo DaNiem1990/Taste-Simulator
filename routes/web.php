@@ -19,3 +19,4 @@ use App\Http\Controllers\HomeController;
 //});
 
 Route::get("/", [HomeController::class, 'index']);
+Route::get("/login", [HomeController::class, 'index'])->name('login');
