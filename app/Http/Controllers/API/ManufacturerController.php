@@ -3,16 +3,21 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Requests\ManufacturerRequest\ManufacturerStoreRequest;
+use App\Http\Requests\ManufacturerRequest\ManufacturerUpdateRequest;
 use App\Models\Manufacturer;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use App\Http\Resources\Manufacturer as ManufacturerResource;
-use App\Http\Requests\ManufacturerRequest\ManufacturerUpdateRequest;
 
+/**
+ * @group Producenci
+ *
+ * Zarządzanie producentami
+ */
 class ManufacturerController extends BaseController
 {
     /**
-     * Display a listing of the resource.
+     * Wyświetla listę producentów.
      *
      * @return JsonResponse
      */
@@ -26,7 +31,7 @@ class ManufacturerController extends BaseController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Dodaje producenta do listy
      *
      * @param ManufacturerStoreRequest $request
      * @return JsonResponse
@@ -43,13 +48,15 @@ class ManufacturerController extends BaseController
     }
 
     /**
-     * Display the specified resource.
+     * Wyświetla szczegóły wybranego producenta
      *
-     * @param Manufacturer $manufacturer
+     * @param int $manufacturerId
      * @return JsonResponse
      */
-    public function show(Manufacturer $manufacturer): JsonResponse
+    public function show(int $manufacturerId): JsonResponse
     {
+        $manufacturer = Manufacturer::find($manufacturerId);
+
         if (is_null($manufacturer)) {
             return $this->sendError('Brak takiego producenta');
         }
@@ -61,7 +68,7 @@ class ManufacturerController extends BaseController
     }
 
     /**
-     * Update the specified resource in storage.
+     * Aktualizuje wybranego producenta
      *
      * @param ManufacturerUpdateRequest $request
      * @param Manufacturer $manufacturer
@@ -81,7 +88,7 @@ class ManufacturerController extends BaseController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Usuwa wybranego producenta z listy.
      *
      * @param Manufacturer $manufacturer
      * @return JsonResponse

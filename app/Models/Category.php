@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
-class Manufacturer extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -28,5 +28,4 @@ class Manufacturer extends Model
     {
         return $this->hasMany(Product::class);
     }
-
 }

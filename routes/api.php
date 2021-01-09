@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\API\ManufacturerController;
 use App\Http\Controllers\API\PassportAuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,6 @@ Route::post('login', [PassportAuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     Route::get('get-user', [PassportAuthController::class, 'userInfo']);
     Route::resource('manufacturers', ManufacturerController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('products', ProductController::class);
 });

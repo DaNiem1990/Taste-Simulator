@@ -6,15 +6,18 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @property mixed name
  * @property mixed id
+ * @property mixed name
+ * @property mixed description
+ * @property mixed category
+ * @property mixed manufacturer
  */
-class Manufacturer extends JsonResource
+class ProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return array
      */
     public function toArray($request): array
@@ -22,6 +25,9 @@ class Manufacturer extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'description' => $this->description,
+            'category' => $this->category,
+            'manufacturer' => $this->manufacturer,
         ];
     }
 }

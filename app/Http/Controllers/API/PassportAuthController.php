@@ -8,10 +8,19 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
+/**
+ * @group Użytkownicy
+ * @package App\Http\Controllers\API
+ */
 class PassportAuthController extends Controller
 {
     /**
-     * Registration Req
+     * Rejestracja nowego użytkownika
+     *
+     * @bodyParam name string required Nazwa użytkownika (min. 4 znaki)
+     * @bodyParam email string required Email użytkownika
+     * @bodyParam password string required Hasło użytkownika (min. 8 znaków)
+     * @response token string Token umożliwiający dostęp do zasobów wymagających logowania
      */
     public function register(Request $request)
     {
@@ -33,7 +42,11 @@ class PassportAuthController extends Controller
     }
 
     /**
-     * Login Req
+     * Logowanie
+     *
+     * @bodyParam email string required Email użytkownika
+     * @bodyParam password string required Hasło użytkownika
+     * @response token string Token umożliwiający dostęp do zasobów wymagających logowania
      */
     public function login(Request $request)
     {
@@ -50,6 +63,11 @@ class PassportAuthController extends Controller
         }
     }
 
+    /**
+     * Informacje o użytkowniku
+     *
+     * @response UserInfo object Informacje o aktualnie zalogowanym użytkowniku
+     */
     public function userInfo()
     {
 
