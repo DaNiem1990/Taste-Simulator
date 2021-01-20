@@ -37,7 +37,7 @@ class ManufacturerUpdateRequest extends FormRequest
                 'bail',
                 'required',
                 'string',
-                Rule::unique(Manufacturer::class, 'name')->ignore($this->id),
+                Rule::unique(Manufacturer::class, 'name')->ignore($this->manufacturer->id),
             ],
         ];
     }

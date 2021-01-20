@@ -5,12 +5,17 @@ namespace App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use phpseclib\Math\BigInteger;
 
 /**
  * @property mixed id
+ * @property Category category
  */
 class CategoryUpdateRequest extends FormRequest
 {
+    /**
+     * @var mixed
+     */
     /**
      * @var mixed
      */
@@ -37,7 +42,7 @@ class CategoryUpdateRequest extends FormRequest
                 'bail',
                 'required',
                 'string',
-                Rule::unique(Category::class, 'name')->ignore($this->id),
+                Rule::unique(Category::class, 'name')->ignore($this->category->id),
             ],
         ];
     }

@@ -83,7 +83,7 @@ class CategoryController extends BaseController
 
         return $this->sendResponse(
             new CategoryResource($category),
-            'Poprawne pobranie kategorii.'
+            'Poprawna aktualizacja kategorii.'
         );
     }
 

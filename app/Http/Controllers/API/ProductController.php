@@ -25,10 +25,10 @@ class ProductController extends BaseController
      */
     public function index(): JsonResponse
     {
-        $manufacturers = Product::all();
+        $products = Product::all();
         return $this->sendResponse(
-            ProductResource::collection($manufacturers),
-            'Poprawne pobranie producentów.'
+            ProductResource::collection($products),
+            'Poprawne pobranie produktów.'
         );
     }
 
@@ -85,7 +85,7 @@ class ProductController extends BaseController
 
         return $this->sendResponse(
             new ProductResource($product),
-            'Poprawne pobranie produktu.'
+            'Poprawna aktualizacja produktu.'
         );
     }
 

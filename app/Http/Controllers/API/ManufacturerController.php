@@ -83,7 +83,7 @@ class ManufacturerController extends BaseController
 
         return $this->sendResponse(
             new ManufacturerResource($manufacturer),
-            'Poprawne pobranie producenta.'
+            'Poprawna aktualizacja danych producenta.'
         );
     }
 

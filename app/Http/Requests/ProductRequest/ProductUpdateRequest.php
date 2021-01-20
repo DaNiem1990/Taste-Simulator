@@ -35,7 +35,7 @@ class ProductUpdateRequest extends FormRequest
                 Rule::unique('products')->where(function($query){
                     return $query->where('category_id', $this->category_id)
                                 ->where('manufacturer_id', $this->manufacturer_id);
-                })->ignore($this->id),
+                })->ignore($this->product->id),
             ],
             'category_id' => [
                 'required',
