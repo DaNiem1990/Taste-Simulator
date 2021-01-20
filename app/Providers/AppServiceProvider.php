@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Builder\ManufacturerBuilder;
+use App\Models\Manufacturer;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ManufacturerBuilder::class, function() {
+            return Manufacturer::query();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191);
     }
 }

@@ -17,11 +17,13 @@
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.8",
         "behat/behat": "^3.8",
         "behat/mink-selenium2-driver": "^1.4",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "friends-of-behat/mink-extension": "^2.4",
+        "knuckleswtf/scribe": "^2.5",
         "laravel/dusk": "^6.9",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
