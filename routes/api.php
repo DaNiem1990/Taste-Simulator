@@ -32,6 +32,6 @@ Route::middleware('auth:api')->group(function () {
         Route::resource('manufacturers', ManufacturerController::class)->except(['index','show']);
         Route::resource('categories', CategoryController::class)->except(['index','show']);
         Route::resource('products', ProductController::class)->except(['index','show']);
-        Route::resource('users', UserController::class)->except(['index','show']);
+        Route::resource('users', UserController::class);
     });
 });

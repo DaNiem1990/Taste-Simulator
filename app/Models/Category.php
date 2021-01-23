@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @proterty string $name
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ * @property mixed name
  */
 class Category extends Model
 {

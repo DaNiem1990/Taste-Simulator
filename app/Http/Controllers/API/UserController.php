@@ -14,7 +14,7 @@ use Illuminate\Http\Response;
 
 
 /**
- * @group Użytkownicy
+ * @group Zarządzanie użytkownikami
  *
  * Zarządzanie użytkownikami
  * @package App\Http\Controllers\API

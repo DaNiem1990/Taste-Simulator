@@ -30,7 +30,7 @@ class UserStoreRequest extends FormRequest
                 'bail',
                 'required',
                 'email',
-                Rule::unique('users')->ignore($this->user->id),
+                Rule::unique('users'),
             ],
             'name' => [
                 'required',
