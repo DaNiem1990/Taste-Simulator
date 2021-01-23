@@ -4,6 +4,7 @@ use App\Http\Controllers\API\ManufacturerController;
 use App\Http\Controllers\API\PassportAuthController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::post('login', [PassportAuthController::class, 'login']);
 Route::resource('manufacturers', ManufacturerController::class)->only(['index','show']);
 Route::resource('products', ProductController::class)->only(['index','show']);
 Route::resource('categories', CategoryController::class)->only(['index','show']);
+Route::resource('users', UserController::class)->only(['index','show']);
 
 Route::middleware('auth:api')->group(function () {
     Route::get('get-user', [PassportAuthController::class, 'userInfo']);
@@ -30,5 +32,6 @@ Route::middleware('auth:api')->group(function () {
         Route::resource('manufacturers', ManufacturerController::class)->except(['index','show']);
         Route::resource('categories', CategoryController::class)->except(['index','show']);
         Route::resource('products', ProductController::class)->except(['index','show']);
+        Route::resource('users', UserController::class)->except(['index','show']);
     });
 });

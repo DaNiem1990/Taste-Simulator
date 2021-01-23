@@ -15,6 +15,9 @@ use Laravel\Passport\HasApiTokens;
  * @property string email
  * @property string password
  * @property bool|mixed isadmin
+ * @property bool only_friends
+ * @property bool is_active
+ * @property mixed remember_token
  */
 class User extends Authenticatable
 {
@@ -29,6 +32,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'only_friends'
     ];
 
     /**
@@ -39,6 +43,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'is_active',
+        'is_admin'
     ];
 
     /**
@@ -52,4 +58,16 @@ class User extends Authenticatable
     /**
      * @var bool|mixed
      */
+
+    public function friends()
+    {
+        return $this->belongsToMany(User::class, 'friendship', 'user_id', 'friend_id');
+    }
+
+    public function getHiddenEmail()
+    {
+        return $this->email[0]
+            . "*****@*****"
+            . substr($this->email, -4);
+    }
 }

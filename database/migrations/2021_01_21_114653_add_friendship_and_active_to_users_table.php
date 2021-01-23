@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIsadminColumnToUsersTable extends Migration
+class AddFriendshipAndActiveToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class AddIsadminColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('isadmin')->default(false);
+            $table->boolean('only_friends')->default(false);
+            $table->boolean('is_active')->default(true);
         });
     }
 
@@ -26,7 +27,8 @@ class AddIsadminColumnToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('isadmin');
+            $table->dropColumn('only_friends');
+            $table->dropColumn('is_active');
         });
     }
 }
